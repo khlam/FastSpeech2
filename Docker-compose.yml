@@ -1,0 +1,10 @@
+version: "3.3"
+
+services:
+  bot:
+    container_name: fsp2
+    build:
+        context: .
+    volumes:
+      - .:/app/
+    command: bash -c "python3 synthesize.py --text "The quick brown fox jumped over the lazy dog" --restore_step 900000 --mode single -p config/LJSpeech/preprocess.yaml -m config/LJSpeech/model.yaml -t config/LJSpeech/train.yaml"
