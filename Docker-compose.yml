@@ -7,4 +7,6 @@ services:
         context: .
     volumes:
       - .:/app/
-    command: bash -c "python3 synthesize.py --text "The quick brown fox jumped over the lazy dog" --restore_step 900000 --mode single -p config/LJSpeech/preprocess.yaml -m config/LJSpeech/model.yaml -t config/LJSpeech/train.yaml"
+      - ./output/:/app/output/
+      - ./root/:/root/
+    command: bash -c "python3 synthesize.py --text 'text to speech using Fast Speech 2 enables creative narritive construction' --restore_step 900000 --mode single -p config/LJSpeech/preprocess.yaml -m config/LJSpeech/model.yaml -t config/LJSpeech/train.yaml"
